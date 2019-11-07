@@ -56,7 +56,15 @@ worker:
       mountPath: /models
     - name: output
       mountPath: /output
+    - name: test-volume
+      mountPath: /criteo
   volumes:
+    - name: test-volume
+      hostPath:
+        # directory location on host
+        path: /mnt/data
+        # this field is optional
+        type: Directory
     - name: nvidia
       hostPath:
         path: "/usr/local/nvidia"
@@ -123,8 +131,8 @@ jupyter:
       mountPath: /models
     - name: output
       mountPath: /output
-    - mountPath: /criteo
-      name: test-volume
+    - name: test-volume
+      mountPath: /criteo
   volumes:
     - name: test-volume
       hostPath:
