@@ -42,10 +42,18 @@ spec:
 {{- if .Values.jupyter.env }}
 {{ toYaml .Values.jupyter.env | indent 12 }}
 {{- end }}
+            - mountPath: /criteo
+              name: test-volume
       volumes:
         - name: config-volume
           configMap:
             name: {{ template "dask.fullname" . }}-jupyter-config
+        - name: test-volume
+          hostPath:
+            # directory location on host
+            path: /mnt/data
+            # this field is optional
+            type: Directory
         - name: data
           flexVolume:
             driver: "azure/blobfuse"

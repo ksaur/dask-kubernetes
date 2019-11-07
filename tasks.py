@@ -134,7 +134,7 @@ def aks_create(
         f"--node-count {node_count} "
         f"--generate-ssh-keys "
         f"-s  {vm_type} "
-        f"--kubernetes-version 1.13.10 "
+        f"--kubernetes-version 1.14.7 "
     )  
     c.run(cmd, pty=True)
 

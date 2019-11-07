@@ -123,7 +123,15 @@ jupyter:
       mountPath: /models
     - name: output
       mountPath: /output
+    - mountPath: /criteo
+      name: test-volume
   volumes:
+    - name: test-volume
+      hostPath:
+        # directory location on host
+        path: /mnt/data
+        # this field is optional
+        type: Directory
     - name: data
       flexVolume:
         driver: "azure/blobfuse"
