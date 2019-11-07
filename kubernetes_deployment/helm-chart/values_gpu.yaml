@@ -42,11 +42,9 @@ worker:
     limits:
       cpu: 6
       memory: 30G
-      nvidia.com/gpu: 1
     requests:
       cpu: 2
       memory: 15G
-      nvidia.com/gpu: 1
   volumeMounts:
     - mountPath: "/usr/local/nvidia"
       name: nvidia
